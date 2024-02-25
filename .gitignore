@@ -1,0 +1,32 @@
+# Unity generated
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Ll]ibrary/
+[Ll]ogs/
+[Uu]serData/
+[Ll]ightmaps/
+
+# VS Code
+.vscode/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
