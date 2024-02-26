@@ -18,21 +18,24 @@ public class Grid : MonoBehaviour
     public Vector2 gridSize; //(40,30)
     public float nodeRadius; //0.5
     public LayerMask obstacleMask;
+    public Transform player;
 
     //Internal script values
-    int gridHeight;
-    int gridLength;
+    int gridX;
+    int gridY;
     float nodeDiameter;
 
     //2D node array
     Node [,] gridArray;
 
+    Vector3 gridOrigin;
 
-    //Calculating node count for grid, Height = X, Width = Y, spawns grid
+
+    //Calculating node count for grid, spawns grid
     void Start()
     {
-        gridHeight = (int)(gridSize.x);
-        gridLength =  (int)(gridSize.y);
+        gridX = (int)(gridSize.x);
+        gridY =  (int)(gridSize.y);
         nodeDiameter = nodeRadius * 2;
 
         SpawnGrid();
@@ -43,15 +46,15 @@ public class Grid : MonoBehaviour
     {
         //Calculates position of grid's bottom left corner (0,0)
         Vector3 halfOfGrid = new Vector3(gridSize.x / 2, 0, gridSize.y / 2);
-        Vector3 gridOrigin = transform.position - halfOfGrid;
+        gridOrigin = transform.position - halfOfGrid;
 
         //Declares array for grid nodes
-        gridArray = new Node[gridHeight, gridLength];
+        gridArray = new Node[gridX, gridY];
 
         //Loops through each node
-        for (int x = 0; x < gridHeight; x++)
+        for (int x = 0; x < gridX; x++)
         {
-            for (int y = 0; y < gridLength; y++)
+            for (int y = 0; y < gridY; y++)
             {
                 //Sets centre of each node as currentPos
                 Vector3 currentPos = gridOrigin + Vector3.right * (nodeDiameter * x + nodeRadius) + Vector3.forward * (nodeDiameter * y + nodeRadius);
@@ -65,12 +68,26 @@ public class Grid : MonoBehaviour
         }
     }
 
+    public Node PlayerNearestNode(Vector3 currentPos)
+    {
+        //Rounds current position to nearest int
+        int x = Mathf.RoundToInt((currentPos.x - gridOrigin.x) / nodeDiameter - nodeRadius);
+        int y = Mathf.RoundToInt((currentPos.z - gridOrigin.z) / nodeDiameter - nodeRadius);
+
+        //Clamps to avoid IndexOutOfBounds
+        x = Mathf.Clamp(x, 0, gridX-1);
+        y = Mathf.Clamp(y, 0, gridY-1);
+
+        return gridArray[x, y];
+    }
+
     //Using Wire Cube Gizmo for visualisation
     void OnDrawGizmos()
     {
         //Defense against NullReferenceException
         if (gridArray != null)
         {
+            Node currentNode = PlayerNearestNode(player.position);
             foreach (Node node in gridArray)
             {
                 //Paints nodes green if traversable, otherwise red
@@ -79,7 +96,13 @@ public class Grid : MonoBehaviour
                 {
                     Gizmos.color = Color.red;
                 }
-                Gizmos.DrawWireCube(node.worldPos, Vector3.one); 
+                if (currentNode == node)
+                {
+                    Gizmos.color = Color.magenta;
+                    Gizmos.DrawCube(node.worldPos, Vector3.one * 0.90f);
+                }
+                else
+                Gizmos.DrawWireCube(node.worldPos, Vector3.one*0.90f); 
             }
         }
     }
