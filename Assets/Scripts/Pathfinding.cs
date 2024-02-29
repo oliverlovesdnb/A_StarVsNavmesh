@@ -119,7 +119,7 @@ public class Pathfinding : MonoBehaviour
             float distanceX = Mathf.Abs(originNode.worldPos.x - endNode.worldPos.x);
             //Debug.Log(distanceX);
             float distanceY = Mathf.Abs(originNode.worldPos.y - endNode.worldPos.y);
-            if (distanceX < distanceY)
+            if (distanceX > distanceY)
             {
                 return 1.414f*distanceY + 1f * (distanceX-distanceY);
             }

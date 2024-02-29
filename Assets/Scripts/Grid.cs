@@ -63,7 +63,7 @@ public class Grid : MonoBehaviour
                 bool traversable = !Physics.CheckSphere(currentPos, nodeRadius, obstacleMask);
 
                 //Adds node to grid array
-                gridArray[x,y] = new Node(traversable, currentPos);
+                gridArray[x,y] = new Node(traversable, currentPos, x, y);
             }
         }
     }
@@ -84,8 +84,8 @@ public class Grid : MonoBehaviour
     public HashSet<Node> getNbr(Node node)
     {
         HashSet<Node> nbr = new HashSet<Node>();
-        Vector3 nodePosOffset = (-Vector3.forward* gridOrigin.z)+(Vector3.right * gridOrigin.x);
-        Vector3 nodePos = node.worldPos + nodePosOffset;
+        Vector3 nodePosOffset = (-Vector3.forward* gridOrigin.z)-(Vector3.right * gridOrigin.x);
+        Vector3 nodePos = node.worldPos+nodePosOffset;
         Debug.Log((nodePos).ToString()+"worldPos");
         Debug.Log(gridOrigin + "gridOrigin");
 
@@ -98,7 +98,7 @@ public class Grid : MonoBehaviour
                     continue;
                 }
                 int _x = (int)nodePos.x + x;
-                int _y = (int)nodePos.y + y;
+                int _y = (int)nodePos.z + y;
 
 
 

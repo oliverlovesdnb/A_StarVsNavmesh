@@ -16,13 +16,18 @@ public class Node
         get { return g + h; }
     }
 
+    public int xPos;
+    public int yPos;
+
     public Node parent;
 
 
-    public Node(bool _traversable,  Vector3 _worldPos)
+    public Node(bool _traversable,  Vector3 _worldPos, int _xPos, int _yPos)
     {
         traversable = _traversable; 
         worldPos = _worldPos;
+        xPos = _xPos;
+        yPos = _yPos;
     }
 
 }
