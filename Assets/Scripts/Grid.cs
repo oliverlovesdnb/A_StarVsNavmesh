@@ -63,11 +63,12 @@ public class Grid : MonoBehaviour
                 bool traversable = !Physics.CheckSphere(currentPos, nodeRadius, obstacleMask);
 
                 //Adds node to grid array
-                gridArray[x,y] = new Node(traversable, currentPos, x, y);
+                gridArray[x,y] = new Node(traversable, currentPos);
             }
         }
     }
 
+    //Gets nearest node to player or target
     public Node PlayerNearestNode(Vector3 currentPos)
     {
         //Rounds current position to nearest int
@@ -81,14 +82,20 @@ public class Grid : MonoBehaviour
         return gridArray[x, y];
     }
 
-    public HashSet<Node> getNbr(Node node)
+    //Gets list of neighbouring nodes
+    public List<Node> getNbr(Node node)
     {
-        HashSet<Node> nbr = new HashSet<Node>();
+        List<Node> nbr = new List<Node>();
+
+        //Offset for World Origin
         Vector3 nodePosOffset = (-Vector3.forward* gridOrigin.z)-(Vector3.right * gridOrigin.x);
         Vector3 nodePos = node.worldPos+nodePosOffset;
-        Debug.Log((nodePos).ToString()+"worldPos");
-        Debug.Log(gridOrigin + "gridOrigin");
 
+        //Debug.Log((nodePos).ToString()+"worldPos");
+        //Debug.Log(gridOrigin + "gridOrigin");
+
+
+        //Checking for traversable neighbours loop
         for (int x = -1; x <= 1; x++)
         {
             for(int y = -1; y <= 1; y++)
@@ -101,16 +108,12 @@ public class Grid : MonoBehaviour
                 int _y = (int)nodePos.z + y;
 
 
-
-                //Debug.Log(gridY);
                 //Prevents adding nodes outside of the grid
                 if (_x < gridX && _x >= 0 && _y < gridY && _y >= 0) 
                 {
                     //Debug.Log("X: " + _x + " Y: " + _y);
                     nbr.Add(gridArray[_x,_y]);
                 }
-
-
             }
         }
 
@@ -126,7 +129,7 @@ public class Grid : MonoBehaviour
 
 
 
-    public HashSet<Node> path;
+    public List<Node> path;
 
     //Using Wire Cube Gizmo for visualisation
     void OnDrawGizmos()

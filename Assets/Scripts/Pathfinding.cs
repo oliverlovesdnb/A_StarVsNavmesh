@@ -27,12 +27,12 @@ public class Pathfinding : MonoBehaviour
     //
     void GeneratePath(Vector3 _startNode, Vector3 _endNode)
     {
-        //Nodes to be used in path calculation
+        //Nodes nearest player and target to be used in path calculation
         Node startNode = grid.PlayerNearestNode(_startNode);
         Node endNode = grid.PlayerNearestNode(_endNode);
 
         //{OPEN} and {CLOSED} node sets
-        HashSet<Node> openSet = new HashSet<Node>();
+        List<Node> openSet = new List<Node>();
         HashSet<Node> closedSet = new HashSet<Node>();
 
         //Add the starting node to the open set
@@ -80,7 +80,7 @@ public class Pathfinding : MonoBehaviour
         return;
 
 
-        Node GetLowestCostNode(HashSet<Node> openNodes)
+        Node GetLowestCostNode(List<Node> openNodes)
         {
             //Declare variables
             Node lowestCostNode = null;
@@ -101,7 +101,7 @@ public class Pathfinding : MonoBehaviour
 
         void ReturnPath(Node startNode, Node endNode)
         {
-            HashSet<Node> returnPath = new HashSet<Node>();
+            List<Node> returnPath = new List<Node>();
 
             Node currentNode = endNode;
 
@@ -123,7 +123,7 @@ public class Pathfinding : MonoBehaviour
             {
                 return 1.414f*distanceY + 1f * (distanceX-distanceY);
             }
-            return 1.414f * distanceX + 1f * (distanceY - distanceX);
+            return 1.414f * distanceX + 1f * (distanceY-distanceX);
         }   
     }
 
