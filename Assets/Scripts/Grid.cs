@@ -18,7 +18,7 @@ public class Grid : MonoBehaviour
     public Vector2 gridSize; //(40,30)
     public float nodeRadius; //0.5
     public LayerMask obstacleMask;
-    public Transform player;
+    //public Transform player;
 
     //Internal script values
     int gridX;
@@ -77,12 +77,81 @@ public class Grid : MonoBehaviour
         //Clamps to avoid IndexOutOfBounds
         x = Mathf.Clamp(x, 0, gridX-1);
         y = Mathf.Clamp(y, 0, gridY-1);
-
+        
         return gridArray[x, y];
     }
 
+    public HashSet<Node> getNbr(Node node)
+    {
+        HashSet<Node> nbr = new HashSet<Node>();
+        Vector3 nodePosOffset = (-Vector3.forward* gridOrigin.z)+(Vector3.right * gridOrigin.x);
+        Vector3 nodePos = node.worldPos + nodePosOffset;
+        Debug.Log((nodePos).ToString()+"worldPos");
+        Debug.Log(gridOrigin + "gridOrigin");
+
+        for (int x = -1; x <= 1; x++)
+        {
+            for(int y = -1; y <= 1; y++)
+            {
+                if (x == 0 && y == 0)
+                {
+                    continue;
+                }
+                int _x = (int)nodePos.x + x;
+                int _y = (int)nodePos.y + y;
+
+
+
+                //Debug.Log(gridY);
+                //Prevents adding nodes outside of the grid
+                if (_x < gridX && _x >= 0 && _y < gridY && _y >= 0) 
+                {
+                    //Debug.Log("X: " + _x + " Y: " + _y);
+                    nbr.Add(gridArray[_x,_y]);
+                }
+
+
+            }
+        }
+
+        return nbr;
+
+/*
+        Debug.Log(nodePos.ToString());
+        Node test = gridArray[1,1];
+        neighbours.Add(test);
+        float testPos = node.worldPos.x;
+        return neighbours;*/
+    }
+
+
+
+    public HashSet<Node> path;
+
     //Using Wire Cube Gizmo for visualisation
     void OnDrawGizmos()
+    {
+        //Defense against NullReferenceException
+        if (gridArray != null)
+        {
+            foreach (Node node in gridArray)
+            {
+                Gizmos.color = (node.traversable) ? Color.white : Color.red;
+                if (path != null)
+                {
+                    if (path.Contains(node))
+                    {
+                        Debug.Log("attempt to path");
+                        Gizmos.color = Color.black;
+                    }
+
+                }
+                Gizmos.DrawCube(node.worldPos, Vector3.one * (nodeDiameter - .1f));
+            }
+        }
+    }
+
+    /*void OnDrawGizmos()
     {
         //Defense against NullReferenceException
         if (gridArray != null)
@@ -101,10 +170,17 @@ public class Grid : MonoBehaviour
                     Gizmos.color = Color.magenta;
                     Gizmos.DrawCube(node.worldPos, Vector3.one * 0.90f);
                 }
+                if (path != null)
+                {
+                    if (path.Contains(node))
+                    {
+                        Gizmos.color = Color.black;
+                    }
+                }
                 else
-                Gizmos.DrawWireCube(node.worldPos, Vector3.one*0.90f); 
+                    Gizmos.DrawWireCube(node.worldPos, Vector3.one * 0.90f);
             }
         }
-    }
+    }*/
 
 }

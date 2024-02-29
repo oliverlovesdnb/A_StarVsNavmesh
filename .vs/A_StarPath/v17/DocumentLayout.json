@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\assets\\scripts\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\assets\\scripts\\pathfinding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pathfinding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Pathfinding.cs",
+              "DocumentMoniker": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\Pathfinding.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Pathfinding.cs",
+              "ToolTip": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\Pathfinding.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Pathfinding.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAcwEIAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-28T11:25:39.509Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,7 +45,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Grid.cs",
               "ToolTip": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\Grid.cs",
               "RelativeToolTip": "Assets\\Scripts\\Grid.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGYAAAARAAAA",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAowLcAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-23T14:39:11.657Z",
               "EditorCaption": ""
@@ -41,9 +58,10 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Node.cs",
               "ToolTip": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\Node.cs",
               "RelativeToolTip": "Assets\\Scripts\\Node.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAcAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T14:37:30.831Z"
+              "WhenOpened": "2024-02-23T14:37:30.831Z",
+              "EditorCaption": ""
             }
           ]
         }
