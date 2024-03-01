@@ -1,5 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+/*
+    Code created by Oliver Fiedot-Davies, 2024
+    For Maynooth University Computer Science and Software Engineering Final Year Project.
+*/
+
 using UnityEngine;
 
 public class Node
@@ -18,7 +21,7 @@ public class Node
 
     public Node parent;
 
-
+    //Node constructor
     public Node(bool _traversable,  Vector3 _worldPos)
     {
         traversable = _traversable; 

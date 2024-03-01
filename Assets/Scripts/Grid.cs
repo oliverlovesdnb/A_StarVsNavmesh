@@ -7,8 +7,6 @@
     Gizmos code taken from https://docs.unity3d.com/ScriptReference/Gizmos.DrawWireCube.html
 */
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +24,7 @@ public class Grid : MonoBehaviour
     float nodeDiameter;
 
     //2D node array
-    Node [,] gridArray;
+    Node[,] gridArray;
 
     Vector3 gridOrigin;
 
@@ -35,7 +33,7 @@ public class Grid : MonoBehaviour
     void Start()
     {
         gridX = (int)(gridSize.x);
-        gridY =  (int)(gridSize.y);
+        gridY = (int)(gridSize.y);
         nodeDiameter = nodeRadius * 2;
 
         SpawnGrid();
@@ -63,7 +61,7 @@ public class Grid : MonoBehaviour
                 bool traversable = !Physics.CheckSphere(currentPos, nodeRadius, obstacleMask);
 
                 //Adds node to grid array
-                gridArray[x,y] = new Node(traversable, currentPos);
+                gridArray[x, y] = new Node(traversable, currentPos);
             }
         }
     }
@@ -76,9 +74,9 @@ public class Grid : MonoBehaviour
         int y = Mathf.RoundToInt((currentPos.z - gridOrigin.z) / nodeDiameter - nodeRadius);
 
         //Clamps to avoid IndexOutOfBounds
-        x = Mathf.Clamp(x, 0, gridX-1);
-        y = Mathf.Clamp(y, 0, gridY-1);
-        
+        x = Mathf.Clamp(x, 0, gridX - 1);
+        y = Mathf.Clamp(y, 0, gridY - 1);
+
         return gridArray[x, y];
     }
 
@@ -88,18 +86,15 @@ public class Grid : MonoBehaviour
         List<Node> nbr = new List<Node>();
 
         //Offset for World Origin
-        Vector3 nodePosOffset = (-Vector3.forward* gridOrigin.z)-(Vector3.right * gridOrigin.x);
-        Vector3 nodePos = node.worldPos+nodePosOffset;
-
-        //Debug.Log((nodePos).ToString()+"worldPos");
-        //Debug.Log(gridOrigin + "gridOrigin");
-
+        Vector3 nodePosOffset = (-Vector3.forward * gridOrigin.z) - (Vector3.right * gridOrigin.x);
+        Vector3 nodePos = node.worldPos + nodePosOffset;
 
         //Checking for traversable neighbours loop
         for (int x = -1; x <= 1; x++)
         {
-            for(int y = -1; y <= 1; y++)
+            for (int y = -1; y <= 1; y++)
             {
+                //Check to avoid adding itself to neighbours list
                 if (x == 0 && y == 0)
                 {
                     continue;
@@ -109,29 +104,20 @@ public class Grid : MonoBehaviour
 
 
                 //Prevents adding nodes outside of the grid
-                if (_x < gridX && _x >= 0 && _y < gridY && _y >= 0) 
+                if (_x < gridX && _x >= 0 && _y < gridY && _y >= 0)
                 {
-                    //Debug.Log("X: " + _x + " Y: " + _y);
-                    nbr.Add(gridArray[_x,_y]);
+                    nbr.Add(gridArray[_x, _y]);
                 }
             }
         }
 
         return nbr;
-
-/*
-        Debug.Log(nodePos.ToString());
-        Node test = gridArray[1,1];
-        neighbours.Add(test);
-        float testPos = node.worldPos.x;
-        return neighbours;*/
     }
-
 
 
     public List<Node> path;
 
-    //Using Wire Cube Gizmo for visualisation
+    //Using Cube Gizmo for visualisation
     void OnDrawGizmos()
     {
         //Defense against NullReferenceException
@@ -139,51 +125,24 @@ public class Grid : MonoBehaviour
         {
             foreach (Node node in gridArray)
             {
-                Gizmos.color = (node.traversable) ? Color.white : Color.red;
+                //Set colour based on if node is traversable or not
+                if (node.traversable)
+                { Gizmos.color = Color.white; }
+                else
+                { Gizmos.color = Color.red; }
+
+                //Colour path black
                 if (path != null)
                 {
                     if (path.Contains(node))
                     {
-                        Debug.Log("attempt to path");
                         Gizmos.color = Color.black;
                     }
-
                 }
+
+                //Render gizmo cubes
                 Gizmos.DrawCube(node.worldPos, Vector3.one * (nodeDiameter - .1f));
             }
         }
     }
-
-    /*void OnDrawGizmos()
-    {
-        //Defense against NullReferenceException
-        if (gridArray != null)
-        {
-            Node currentNode = PlayerNearestNode(player.position);
-            foreach (Node node in gridArray)
-            {
-                //Paints nodes green if traversable, otherwise red
-                Gizmos.color = Color.green;
-                if (!node.traversable)
-                {
-                    Gizmos.color = Color.red;
-                }
-                if (currentNode == node)
-                {
-                    Gizmos.color = Color.magenta;
-                    Gizmos.DrawCube(node.worldPos, Vector3.one * 0.90f);
-                }
-                if (path != null)
-                {
-                    if (path.Contains(node))
-                    {
-                        Gizmos.color = Color.black;
-                    }
-                }
-                else
-                    Gizmos.DrawWireCube(node.worldPos, Vector3.one * 0.90f);
-            }
-        }
-    }*/
-
 }
