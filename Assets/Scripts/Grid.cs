@@ -56,9 +56,9 @@ public class Grid : MonoBehaviour
         {
             for (int y = 0; y < gridY; y++)
             {
-                //Sets centre of each node as currentPos
-                Vector3 currentPos = gridOrigin + Vector3.right * (nodeDiameter * x + nodeRadius) + Vector3.forward * (nodeDiameter * y + nodeRadius);
-
+                //Sets centre of each node as currentPos --------------GRAVITY GLITCH IS IN HERE SOMEWHERE--------------
+                Vector3 currentPos = gridOrigin + Vector3.right * (nodeDiameter * x + nodeRadius) + Vector3.forward * (nodeDiameter * y - nodeRadius);
+                
                 //Checks if node overlaps with obstacleMask based on current position and radius
                 bool traversable = !Physics.CheckSphere(currentPos, nodeRadius, obstacleMask);
 
@@ -78,18 +78,18 @@ public class Grid : MonoBehaviour
         //Clamps to avoid IndexOutOfBounds
         x = Mathf.Clamp(x, 0, gridX-1);
         y = Mathf.Clamp(y, 0, gridY-1);
-        
+            
         return gridArray[x, y];
     }
 
     //Gets list of neighbouring nodes
-    public List<Node> getNbr(Node node)
+    public List<Node> GetNbr(Node node)
     {
         List<Node> nbr = new List<Node>();
 
         //Offset for World Origin
-        Vector3 nodePosOffset = (-Vector3.forward* gridOrigin.z)-(Vector3.right * gridOrigin.x);
-        Vector3 nodePos = node.worldPos+nodePosOffset;
+        Vector3 gridOffset = (Vector3.forward* gridOrigin.z)+(Vector3.right * gridOrigin.x);
+        Vector3 nodePos = node.worldPos-gridOffset;
 
         //Debug.Log((nodePos).ToString()+"worldPos");
         //Debug.Log(gridOrigin + "gridOrigin");
@@ -104,8 +104,8 @@ public class Grid : MonoBehaviour
                 {
                     continue;
                 }
-                int _x = (int)nodePos.x + x;
-                int _y = (int)nodePos.z + y;
+                int _x = Mathf.Clamp((int)nodePos.x + x, 0, gridX - 1);
+                int _y = Mathf.Clamp((int)nodePos.z + y, 0, gridY - 1);
 
 
                 //Prevents adding nodes outside of the grid
@@ -144,7 +144,7 @@ public class Grid : MonoBehaviour
                 {
                     if (path.Contains(node))
                     {
-                        Debug.Log("attempt to path");
+                        //Debug.Log("attempt to path");
                         Gizmos.color = Color.black;
                     }
 

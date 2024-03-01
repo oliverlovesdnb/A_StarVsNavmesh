@@ -56,7 +56,7 @@ public class Pathfinding : MonoBehaviour
                 break;
             }
 
-            foreach (Node nbr in grid.getNbr(currentNode))
+            foreach (Node nbr in grid.GetNbr(currentNode))
             {
                 if (closedSet.Contains(nbr) || !nbr.traversable)
                 { 
@@ -95,6 +95,8 @@ public class Pathfinding : MonoBehaviour
                     lowestCostNode = node;
                 }
             }
+            //Debug.Log("Lowest Cost Node: " + lowestCostNode.worldPos + ", Cost: " + lowestCost);
+
             return lowestCostNode;
 
         }
@@ -119,11 +121,7 @@ public class Pathfinding : MonoBehaviour
             float distanceX = Mathf.Abs(originNode.worldPos.x - endNode.worldPos.x);
             //Debug.Log(distanceX);
             float distanceY = Mathf.Abs(originNode.worldPos.y - endNode.worldPos.y);
-            if (distanceX > distanceY)
-            {
-                return 1.414f*distanceY + 1f * (distanceX-distanceY);
-            }
-            return 1.414f * distanceX + 1f * (distanceY-distanceX);
+            return 1.414f * Mathf.Min(distanceX, distanceY) + 1f * Mathf.Abs(distanceX - distanceY);
         }   
     }
 
