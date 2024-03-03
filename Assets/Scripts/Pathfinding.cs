@@ -131,7 +131,6 @@ public class Pathfinding : MonoBehaviour
         }   
     }
 
-    
     void Awake()
     {
         grid = GetComponent<Grid>();

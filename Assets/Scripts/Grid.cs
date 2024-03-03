@@ -16,7 +16,6 @@ public class Grid : MonoBehaviour
     public Vector2 gridSize; //(40,30)
     public float nodeRadius; //0.5
     public LayerMask obstacleMask;
-    //public Transform player;
 
     //Internal script values
     int gridX;
@@ -144,5 +143,9 @@ public class Grid : MonoBehaviour
                 Gizmos.DrawCube(node.worldPos, Vector3.one * (nodeDiameter - .1f));
             }
         }
+    }
+    public List<Node> getPath()
+    {
+        return path;
     }
 }

@@ -27,5 +27,4 @@ public class Node
         traversable = _traversable; 
         worldPos = _worldPos;
     }
-
 }
