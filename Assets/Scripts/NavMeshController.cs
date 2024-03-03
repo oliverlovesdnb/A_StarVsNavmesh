@@ -3,6 +3,7 @@
     For Maynooth University Computer Science and Software Engineering Final Year Project.
 */
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,10 +13,13 @@ public class NavMeshController : MonoBehaviour
     public NavMeshAgent agent;
     public List<Node> path;
     bool targetReached = false;
+    //Timer for measuring travel time
+    Stopwatch stopwatch = new Stopwatch();
     void Awake()
     {
         //Find Grid class
         grid = FindObjectOfType<Grid>();
+        stopwatch.Start();
     }
     void Update()
     {
@@ -39,7 +43,9 @@ public class NavMeshController : MonoBehaviour
             }
             if (path.Count == 1 && !targetReached)
             {
-                Debug.Log("NavMesh NPC reached target");
+                stopwatch.Stop();
+                long elapsedTime = stopwatch.ElapsedMilliseconds;
+                UnityEngine.Debug.Log("NavMesh NPC reached target, time: "+elapsedTime+"ms");
                 targetReached=true;
             }
         }

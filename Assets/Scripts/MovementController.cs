@@ -4,6 +4,7 @@
 */
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 public class MovementController : MonoBehaviour
 {
     public Transform target;
@@ -15,10 +16,14 @@ public class MovementController : MonoBehaviour
 
     bool targetReached = false;
 
+    //Timer for measuring travel time
+    Stopwatch stopwatch = new Stopwatch();  
+
     void Awake()
     {
         //Find Grid class
         grid = FindObjectOfType<Grid>();
+        stopwatch.Start();
     }
 
     void Update()
@@ -42,6 +47,7 @@ public class MovementController : MonoBehaviour
         }
         if (path != null && path.Count > 0 && transform.position != null)
         {
+
             //targetNode is always next node in list, unlike NavMesh
             Node targetNode = path[currentPathIndex];
 
@@ -50,8 +56,11 @@ public class MovementController : MonoBehaviour
         }
         if (Vector3.Distance(transform.position, target.position) < 1f && !targetReached)
         {
-            Debug.Log("A_Star NPC reached target");
+            stopwatch.Stop();
+            long elapsedTime = stopwatch.ElapsedMilliseconds;
+            UnityEngine.Debug.Log("A_Star NPC reached target, time: "+ elapsedTime + "ms");
             targetReached = true;
+
         }
     }
 }

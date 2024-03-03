@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\assets\\scripts\\movementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\movementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\assets\\scripts\\navmeshcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\navmeshcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\assets\\scripts\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\assets\\scripts\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|c:\\users\\olive\\onedrive\\fyp\\a_starpath\\assets\\scripts\\movementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\movementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\assets\\scripts\\pathfinding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pathfinding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|c:\\users\\olive\\onedrive\\fyp\\a_starpath\\assets\\scripts\\navmeshcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\navmeshcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\assets\\scripts\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C74F31FC-34F3-7BD3-F698-613B154CDF67}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\node.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Grid.cs",
               "ToolTip": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\Grid.cs",
               "RelativeToolTip": "Assets\\Scripts\\Grid.cs",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAowBEAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-23T14:39:11.657Z",
               "IsPinned": true,
@@ -48,26 +48,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "NavMeshController.cs",
               "DocumentMoniker": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\NavMeshController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NavMeshController.cs",
               "ToolTip": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\NavMeshController.cs",
               "RelativeToolTip": "Assets\\Scripts\\NavMeshController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwCsAAAANAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAgwC8AAABaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-03T17:20:10.478Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MovementController.cs",
               "DocumentMoniker": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\MovementController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\MovementController.cs",
               "ToolTip": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\MovementController.cs",
               "RelativeToolTip": "Assets\\Scripts\\MovementController.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAYwCIAAAA2AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-03T16:49:01.487Z",
               "EditorCaption": ""
@@ -80,14 +80,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Pathfinding.cs",
               "ToolTip": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\Pathfinding.cs",
               "RelativeToolTip": "Assets\\Scripts\\Pathfinding.cs",
-              "ViewState": "AQIAAHUAAAAAAAAAAAAYwIQAAAAAAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwIQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-28T11:25:39.509Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Node.cs",
               "DocumentMoniker": "C:\\Users\\olive\\OneDrive\\fyp\\A_StarPath\\Assets\\Scripts\\Node.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Node.cs",
@@ -95,8 +95,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Node.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAAwBwAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-23T14:37:30.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-23T14:37:30.831Z"
             }
           ]
         }
